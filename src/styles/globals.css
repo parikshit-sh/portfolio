@@ -26,14 +26,14 @@
 
 @font-face {
   font-family: 'Mori';
-  src: url('../pages/fonts/Mori-Regular.woff') format('woff');
+  src: url('/fonts/Mori-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'PPMondwest';
-  src: url('../pages/fonts/Mondwest.woff2') format('woff2');
+  src: url('/fonts/Mondwest.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
