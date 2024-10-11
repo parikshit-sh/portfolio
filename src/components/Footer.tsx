@@ -54,7 +54,7 @@ const Footer = () => {
     <>
     <section className="flex flex-col items-center justify-center lg:flex-row">
       <div>
-        <div className="text-8xl mx-auto uppercase text-center py-8">
+        <div className="lg:text-8xl text-4xl md:text-7xl mx-auto uppercase text-center py-8">
           <h1>
           get in touch<span className="font-bit">✨</span> {" "}
           <span></span>

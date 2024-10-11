@@ -176,7 +176,7 @@ const Header = () => {
     >
       <nav className="flex justify-center items-center p-4">
       
-        <ul className="flex space-x-3 md:space-x-6 no-underline">
+        <ul className="flex space-x-2 md:space-x-6 no-underline">
         <h1 className="text-xs uppercase navbar-link">Parikshit Sharma</h1>
           <li className="navbar-link relative">
             <a
@@ -188,7 +188,7 @@ const Header = () => {
               GitHub
             </a>
           </li>
-          <li className="navbar-link relative ">
+          <li className="navbar-link relative text-xs">
             <a
               href="https://www.linkedin.com/in/parikshit-sh/"
               target="_blank"
