@@ -12,7 +12,8 @@ import styles from '@app/page.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const [contentVisible, setContentVisible] = useState(false); // State to control main content visibility
+  const [contentVisible, setContentVisible] = useState(false);
+  const [loaderVisible, setLoaderVisible] = useState(true);
   const loader = useRef<HTMLDivElement | null>(null);
   const path = useRef<SVGPathElement | null>(null);
   const initialCurve = 200;
@@ -20,11 +21,16 @@ export default function Home() {
   let start: number | undefined;
 
   useEffect(() => {
-    // Set the initial curve and start the animation
     setPath(initialCurve);
     setTimeout(() => {
       requestAnimationFrame(animate);
     }, 500);
+
+    const hideContentUntilLoader = setTimeout(() => {
+      setContentVisible(true);
+    }, duration + 300);
+
+    return () => clearTimeout(hideContentUntilLoader);
   }, []);
 
   const animate = (timestamp: number) => {
@@ -43,15 +49,11 @@ export default function Home() {
     if (elapsed < duration) {
       requestAnimationFrame(animate);
     } else {
-      // Animation completed
       if (loader.current) {
-        loader.current.style.opacity = '0'; // Fade out loader
+        loader.current.style.opacity = '100';
         setTimeout(() => {
-          if (loader.current) {
-            loader.current.style.display = 'none'; // Hide loader
-            setContentVisible(true); // Show the main content
-          }
-        }, 300); // Match this duration with CSS transition
+          setLoaderVisible(false);
+        }, 300);
       }
     }
   };
@@ -68,7 +70,8 @@ export default function Home() {
       path.current.setAttributeNS(
         null,
         "d",
-        `M0 0 L${width} 0 L${width} ${height} Q${width / 2} ${height - curve} 0 ${height} L0 0`
+        `M0 0 L${width} 0 L${width} ${height} Q${width / 2}
+         ${height - curve} 0 ${height} L0 0`
       );
     }
   };
@@ -81,18 +84,18 @@ export default function Home() {
 
   return (
     <>
-      {/* Preloader */}
-      <div ref={loader} className={styles.loader}>
-        <svg className="w-full h-full">
-          <path ref={path} fill="#eeff82"></path>
-        </svg>
-      </div>
+      {loaderVisible && (
+        <div ref={loader} className={styles.loader} style={{ zIndex: 9999 }}>
+          <svg className="w-full h-full">
+            <path ref={path} fill="#eeff82"></path>
+          </svg>
+        </div>
+      )}
 
-      {/* Main content, only rendered when contentVisible is true */}
       {contentVisible && (
-        <div className={`grid items-center 
+        <div className={`${styles.mainContent} grid items-center 
           justify-items-center min-h-screen pb-20 gap-16
-          sm:p-10 sm:pt-20 bg-background`}>
+          sm:p-10 sm:pt-20 transition-opacity duration-300`}>
           <Header />
           <Hero />
           <About />
