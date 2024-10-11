@@ -22,11 +22,18 @@ const Footer = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
   
+    // Convert formData to a plain object
+    const emailData: Record<string, unknown> = {
+      from_name: formData.from_name,
+      email: formData.email,
+      message: formData.message,
+    };
+  
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',  // Use process.env for Next.js
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
-        formData,
+        emailData,  // Use the plain object here
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ''
       )
       .then(
