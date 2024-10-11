@@ -20,6 +20,7 @@ export default function Home() {
   let start: number | undefined;
 
   useEffect(() => {
+    // Set the initial curve and start the animation
     setPath(initialCurve);
     setTimeout(() => {
       requestAnimationFrame(animate);
@@ -42,14 +43,15 @@ export default function Home() {
     if (elapsed < duration) {
       requestAnimationFrame(animate);
     } else {
+      // Animation completed
       if (loader.current) {
         loader.current.style.opacity = '0'; // Fade out loader
         setTimeout(() => {
           if (loader.current) {
-            loader.current.style.display = 'none'; // Hide after fade out
+            loader.current.style.display = 'none'; // Hide loader
             setContentVisible(true); // Show the main content
           }
-        }, 300);
+        }, 300); // Match this duration with CSS transition
       }
     }
   };
@@ -86,16 +88,18 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* Main content */}
-      <div className={`${styles.mainContent} ${contentVisible ? 'show' : ''} grid items-center 
-        justify-items-center min-h-screen pb-20 gap-16
-        sm:p-10 sm:pt-20 bg-background transition-opacity duration-300`}>
-        <Header />
-        <Hero />
-        <About />
-        <Projects />
-        <Footer />
-      </div>
+      {/* Main content, only rendered when contentVisible is true */}
+      {contentVisible && (
+        <div className={`grid items-center 
+          justify-items-center min-h-screen pb-20 gap-16
+          sm:p-10 sm:pt-20 bg-background`}>
+          <Header />
+          <Hero />
+          <About />
+          <Projects />
+          <Footer />
+        </div>
+      )}
     </>
   );
 }
