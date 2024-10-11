@@ -111,17 +111,8 @@ const Projects = ({ projects = [
       gsap.to(`#project-details-${activeProject}`, {
         height: "auto",
         opacity: 1,
-        duration: 0.5, // Adjusted for smoother transition
-        ease: "power1.out", // Adjusted for smoother transition
-        onComplete: () => {
-          if (window.innerWidth <= 1200) {
-            gsap.to(window, {
-              scrollTo: `#project-details-${activeProject}`,
-              duration: 0.5,
-              ease: "power1.out",
-            });
-          }
-        },
+        duration: 0.3,
+        ease: "power2.out"
       });
     }
 
@@ -211,7 +202,7 @@ const Projects = ({ projects = [
                     {project.images.slice(0, 3).map
                     ((image: string | StaticImport, imageIndex: number) => (
                       <Image key={imageIndex} src={image}
-                       alt={`Project ${project.title} Image ${imageIndex + 1}`} width={600} height={400} className="rounded-lg" />
+                       alt={`Project ${project.title} Image ${imageIndex + 1}`} width={600} height={400}  />
                     ))}
                   </div>
                 </div>
