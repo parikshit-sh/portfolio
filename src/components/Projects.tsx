@@ -143,14 +143,14 @@ const Projects = ({ projects = [
   };
 
   return (
-    <section className="projects-section py-20 flex flex-col items-center" id="projects_">
+    <section className="projects-section py-10 pt-20 flex flex-col items-center" id="projects_">
       <div className="max-w-6xl w-full px-12">
         <h1 className="text-4xl lg:text-5xl mb-12 uppercase" id="prod">
           Projects
         </h1>
       </div>
 
-      <div className="w-full px-4 lg:px-0">
+      <div className="w-full px-4 lg:px-0 ">
         <div className="flex flex-col">
           {projects.map((project: Project, index: number) => (
             <div key={project.id} className="project-container">

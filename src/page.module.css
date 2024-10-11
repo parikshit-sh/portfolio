@@ -29,4 +29,16 @@
     stroke-width: 1px;
     
   }
+  /* Hide the main content initially */
+.main-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+  }
+  
+  .main-content.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease;
+  }
   

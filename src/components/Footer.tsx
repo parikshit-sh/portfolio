@@ -54,7 +54,7 @@ const Footer = () => {
     <>
     <section className="flex flex-col items-center justify-center lg:flex-row">
       <div>
-        <div className="text-7xl uppercase p-4 text-center py-8 md:text-left">
+        <div className="text-8xl mx-auto uppercase text-center py-8">
           <h1>
           get in touch<span className="font-bit">✨</span> {" "}
           <span></span>
@@ -64,8 +64,8 @@ const Footer = () => {
           </div>
       </div>
     <footer className="footer py-20 bg-transparent">
-      <div className="max-w-full  w-full mx-auto px-4">
-        <h2 className="text-4xl mb-8 text-center about-head">DROP A MESSAGE</h2>
+      <div className="max-w-full  w-full mx-auto px-2">
+        <h2 className="text-4xl md:text-4xl mb-8 text-center about-head uppercase p-6">drop a message</h2>
         <form onSubmit={handleSubmit} className="space-y-4 p-0 md:p-8">
           <input
             type="text"
