@@ -12,10 +12,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".", // Base URL for resolving paths
     "paths": {
-      "@/app/*": ["./src/*"]
+      "@app/*": ["src/*"], // General mapping for src
+      "@app/components/*": ["src/components/*"] ,
+      "@styles/*":["src/styles/*"]// Specific mapping for components
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/SmoothScrolling.tsx"],
   "exclude": ["node_modules"]
 }

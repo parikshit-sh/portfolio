@@ -1,22 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+::root {
+  color: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+
+}
+/* Inside your globals.css */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+@font-face {
+  font-family: 'Mori';
+  src: url('../pages/fonts/Mori-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PPMondwest';
+  src: url('../pages/fonts/Mondwest.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body {
+  background-color: #000; /* Ensure the background is black */
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -25,3 +50,98 @@ body {
     text-wrap: balance;
   }
 }
+.projects{ 
+  margin: 0 auto; 
+}
+.projects-section{
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+.projects-section{
+  cursor: pointer;
+}
+.projects h1{
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+.project-card h2,
+.project-card p {
+  margin: 0;
+
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    max-width: 100%;
+    
+  }
+
+.about-text{
+  font-size: 0.9rem;
+}
+
+  .project-card img {
+    height: full;
+    width: 100%;
+  }
+
+  .project-card-content {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-card img {
+    height: 200px;
+  }
+
+  .project-card-content {
+    padding: 8px;
+  }
+}
+
+@media (min-width:700px){
+
+  .project-card:hover {
+    background-color: transparent;
+  }
+}
+
+
+.btn {
+display: flex;
+width: 80%;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .project-card {
+    flex-direction: row;
+  }
+  
+}
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+

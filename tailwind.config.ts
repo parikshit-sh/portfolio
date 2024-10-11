@@ -8,10 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      fontFamily: {
+        bit: ["PPMondwest"],
+        gVibes:["Great Vibes, cursive"],
+        mori:["Mori"]
+      }
     },
   },
   plugins: [],
