@@ -12,7 +12,7 @@ import styles from '@app/page.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true); // Track loading state
+  const [contentVisible, setContentVisible] = useState(false); // State to control main content visibility
   const loader = useRef<HTMLDivElement | null>(null);
   const path = useRef<SVGPathElement | null>(null);
   const initialCurve = 200;
@@ -20,6 +20,7 @@ export default function Home() {
   let start: number | undefined;
 
   useEffect(() => {
+    // Set the initial curve and start the animation
     setPath(initialCurve);
     setTimeout(() => {
       requestAnimationFrame(animate);
@@ -48,7 +49,7 @@ export default function Home() {
         setTimeout(() => {
           if (loader.current) {
             loader.current.style.display = 'none'; // Hide loader
-            setIsLoading(false); // Set loading state to false to show content
+            setContentVisible(true); // Show the main content
           }
         }, 300); // Match this duration with CSS transition
       }
@@ -87,18 +88,18 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* Main content, always rendered but hidden during loading */}
-      <div 
-        className={`grid items-center 
+      {/* Main content, only rendered when contentVisible is true */}
+      {contentVisible && (
+        <div className={`grid items-center 
           justify-items-center min-h-screen pb-20 gap-16
-          sm:p-10 sm:pt-20 bg-background transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-      >
-        <Header />
-        <Hero />
-        <About />
-        <Projects />
-        <Footer />
-      </div>
+          sm:p-10 sm:pt-20 bg-background`}>
+          <Header />
+          <Hero />
+          <About />
+          <Projects />
+          <Footer />
+        </div>
+      )}
     </>
   );
 }
