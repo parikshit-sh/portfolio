@@ -43,23 +43,23 @@ const Hero = () => {
         className="object-cover w-full h-full top-0 left-0 min-h-screen opacity-50" 
         width={1000} height={1000} />
       </div>
-      <div ref={textRef} className="text-center p-4 max-w-9xl select-none">
+      <div ref={textRef} className="text-center p-6 max-w-6xl select-none">
         {/* Name Heading */}
-        <h1 className="text-[clamp(1.2rem,8vw,8rem)] md:text-[clamp(1.8rem,6vw,6rem)] font-editorial leading-[1] ">
-         <span className="font-gVibes text-[clamp(1.5rem,9vw,9rem)] md:text-[clamp(2rem,7vw,7rem)] ">P</span>ARIKSHIT{" "}
-        <span className="font-gVibes text-[clamp(1.5rem,9vw,9rem)] md:text-[clamp(2rem,7vw,7rem)] ">S</span>HARMA
+        <h1 className="text-[clamp(1.4rem,7vw,7rem)] md:text-[clamp(1.8rem,6vw,6rem)] font-editorial leading-[1] ">
+         <span className="font-gVibes text-[clamp(1.7rem,8vw,8rem)] md:text-[clamp(2rem,7vw,7rem)] ">P</span>ARIKSHIT{" "}
+        <span className="font-gVibes text-[clamp(1.7rem,8vw,8rem)] md:text-[clamp(2rem,7vw,7rem)] ">S</span>HARMA
         </h1>
 
         {/* Title */}
-        <h1 className="text-[clamp(1.2rem,8vw,8rem)] md:text-[clamp(1.8rem,6vw,6rem)] uppercase font-editorial leading-[1]">
+        <h1 className="text-[clamp(1.4rem,7vw,7rem)] md:text-[clamp(1.8rem,6vw,6rem)] uppercase font-editorial leading-[1]">
           front end 
         </h1>
-        <h1 className="text-[clamp(1.2rem,8vw,8rem)] md:text-[clamp(1.8rem,6vw,6rem)] uppercase font-editorial leading-[1]">
+        <h1 className="text-[clamp(1.4rem,7vw,7rem)] md:text-[clamp(1.8rem,6vw,6rem)] uppercase font-editorial leading-[1]">
         developer<span className="font-bit">✨</span>
         </h1>
 
         {/* Description */}
-        <p className="mt-6 text-[clamp(1rem,2vw,2rem)] font-mono leading-none">
+        <p className="md:mt-6 text-[clamp(1rem,2vw,2rem)] font-mono leading-none p-6">
           Crafting seamless digital experiences.
         </p>
       </div>

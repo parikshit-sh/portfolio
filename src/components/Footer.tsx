@@ -53,20 +53,20 @@ const Footer = () => {
   
   return (
     <>
-    <section className="flex flex-col items-center justify-center lg:flex-row">
+    <section className="flex flex-col items-center justify-center lg:flex-row z-[20]">
       <div>
         <div className="lg:text-8xl text-4xl 
         md:text-7xl mx-auto uppercase text-center py-8
         ">
-          <h1 className="font-edgy">
-          GET <span className="font-bold">IN</span> TOUCH<span className="font-bit">✨</span> {" "}
+          <h1 className="font-edgy select-none">
+          GET IN TOUCH<span className="font-bit">✨</span> {" "}
           <span></span>
           </h1>
           <div className="relative inline-block">
             <h1 
               className="text-2xl md:text-4xl text-[#eeff82]
               pt-4 lowercase 
-              lg:select-text select-none cursor-pointer transition-all 
+               cursor-pointer transition-all 
               duration-300 ease-in-out"
               onClick={() => {
                 navigator.clipboard.writeText("parikshitshadn@gmail.com");
@@ -97,7 +97,7 @@ const Footer = () => {
       </div>
     <footer className="footer py-20 bg-transparent">
       <div className="max-w-full  w-full mx-auto px-2">
-        <h2 className="text-4xl md:text-4xl lg:text-5xl 
+        <h2 className="text-4xl md:text-4xl lg:text-5xl select-none
         xl:text-8xl mb-8 text-center about-head
          uppercase p-6 font-edgy">drop a message</h2>
         <form onSubmit={handleSubmit} className="space-y-4 p-0 md:p-8">

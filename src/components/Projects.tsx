@@ -61,7 +61,7 @@ const Projects = ({ projects = [
     date: "2023",
   },
 ]}: { projects?: Project[] }) => {
-  const [, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [activeProject, setActiveProject] = useState<string | null>(null);
 
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -70,15 +70,13 @@ const Projects = ({ projects = [
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1200);
+      setIsMobile(window.innerWidth <= 768);
     };
 
     if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth <= 1200);
+      handleResize();
       window.addEventListener("resize", handleResize);
     }
-
-    window.addEventListener("resize", handleResize);
 
     // Animate border lines on scroll only once
     if (!animationCompletedRef.current) {
@@ -111,14 +109,23 @@ const Projects = ({ projects = [
       gsap.to(`#project-details-${activeProject}`, {
         height: "auto",
         duration: 0.6,
-        ease: "power2.inOut"
+        ease: "power2.inOut",
+        onComplete: () => {
+          if (isMobile) {
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: `#project-${activeProject}`, offsetY: 50 },
+              ease: "power2.inOut"
+            });
+          }
+        }
       });
     }
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [activeProject]);
+  }, [activeProject, isMobile]);
 
   const handleProjectClick = (id: string) => {
     if (activeProject === id) {
@@ -141,6 +148,15 @@ const Projects = ({ projects = [
         height: "auto",
         duration: 0.6,
         ease: "power2.inOut",
+        onComplete: () => {
+          if (isMobile) {
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: `#project-${id}`, offsetY: 50 },
+              ease: "power2.inOut"
+            });
+          }
+        }
       });
     }
   };
@@ -156,7 +172,7 @@ const Projects = ({ projects = [
       <div className="w-full px-4 lg:px-0 ">
         <div className="flex flex-col">
           {projects.map((project: Project, index: number) => (
-            <div key={project.id} className="project-container">
+            <div key={project.id} className="project-container" id={`project-${project.id}`}>
               <div
                 ref={(el) => {
                   borderRefs.current[index] = el;
@@ -190,7 +206,7 @@ const Projects = ({ projects = [
               >
                 <div className="py-6">
                   <p className="mb-4 text-[1.3rem] max-w-4xl md:text-3xl">{project.description}</p>
-                  <ol className="tech-used grid grid-cols-1 text-9xl md:hidden p-3">
+                  <ol className="tech-used flex text-9xl md:hidden p-3">
                     {project.techUsed.map((tech: string, techIndex: number) => (
                       <li key={techIndex} className="text-sm px-2 py-1
                        before:content-['●'] before:mr-2 before:text-lg">
