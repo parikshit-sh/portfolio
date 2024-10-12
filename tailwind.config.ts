@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         bit: ["PPMondwest"],
         gVibes:["Great Vibes, cursive"],
+        woodland:["Woodland"],
         mori:["Mori"]
       }
     },

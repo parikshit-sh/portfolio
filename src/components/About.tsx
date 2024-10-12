@@ -16,7 +16,7 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="mt-8 flex flex-col sm:flex-row justify-center items-center 
+        <div className="mt-8 flex flex-col sm:flex-row justify-center items-center z-20
         gap-4 sm:gap-6 px-10">
           <a
             href="mailto:parikshitshadn@gmail.com?subject=Work Inquiry"
