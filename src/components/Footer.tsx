@@ -65,7 +65,9 @@ const Footer = () => {
           <div className="relative inline-block">
             <h1 
               className="text-2xl md:text-4xl text-[#eeff82]
-              pt-4 lowercase select-text cursor-pointer transition-all duration-300 ease-in-out"
+              pt-4 lowercase 
+              lg:select-text select-none cursor-pointer transition-all 
+              duration-300 ease-in-out"
               onClick={() => {
                 navigator.clipboard.writeText("parikshitshadn@gmail.com");
                 gsap.to(".copy-notification", {

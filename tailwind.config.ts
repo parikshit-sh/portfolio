@@ -13,7 +13,7 @@ const config: Config = {
         gVibes:["Great Vibes, cursive"],
         woodland:["Woodland"],
         mori:["Mori"],
-        edgy:["Edgy"]
+        editorial:["PPEditorial"]
       }
     },
   },

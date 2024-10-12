@@ -25,8 +25,8 @@
 }
 
 @font-face {
-  font-family: 'Edgy';
-  src: url('/fonts/edgy.woff') format('woff');
+  font-family: 'PPEditorial';
+  src: url('/fonts/Editorial.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
