@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [bgColor, setBgColor] = useState("transparent");
 
   useEffect(() => {
@@ -23,18 +22,6 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     gsap.set(".navbar-link", { opacity: 0, y: 10 });
@@ -98,74 +85,7 @@ const Header = () => {
     });
   }, []);
 
-  useEffect(() => {
-    if (menuOpen) {
-      gsap.to(".mobile-menu", {
-        x: 0,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-      gsap.to(".mobile-menu-overlay", {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-      document.body.style.overflow = "hidden";
-    } else {
-      gsap.to(".mobile-menu", {
-        x: "100%",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-      gsap.to(".mobile-menu-overlay", {
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-      document.body.style.overflow = "auto";
-    }
-
-    const links = document.querySelectorAll(".mobile-menu a");
-    links.forEach((link) => {
-      const underline = document.createElement("div");
-      underline.className = "underline";
-      link.appendChild(underline);
-
-      gsap.set(underline, {
-        scaleX: 0,
-        transformOrigin: "left",
-        backgroundColor: "#121212",
-        height: "2px",
-        position: "absolute",
-        bottom: "-1px",
-        left: 0,
-        width: "100%",
-      });
-
-      gsap.set(link, {
-        position: "relative",
-        overflow: "hidden",
-      });
-
-      link.addEventListener("mouseenter", () => {
-        gsap.to(underline, { scaleX: 1, duration: 0.5, ease: "power2.out" });
-        gsap.to(link, {
-          y: -5,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      });
-
-      link.addEventListener("mouseleave", () => {
-        gsap.to(underline, { scaleX: 0, duration: 0.5, ease: "power2.out" });
-        gsap.to(link, {
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      });
-    });
-  }, [menuOpen]);
+  
 
   return (
     <header

@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "#faf6f9", // Monster Energy drink green color
+          backgroundColor: "#faf6f9", 
           zIndex: 9999,
         }}
       />
