@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import gsap from "gsap";
 
 interface FormData {
   from_name: string;
@@ -54,18 +55,49 @@ const Footer = () => {
     <>
     <section className="flex flex-col items-center justify-center lg:flex-row">
       <div>
-        <div className="lg:text-8xl text-4xl md:text-7xl mx-auto uppercase text-center py-8">
-          <h1>
-          get in touch<span className="font-bit">✨</span> {" "}
+        <div className="lg:text-8xl text-4xl 
+        md:text-7xl mx-auto uppercase text-center py-8
+        ">
+          <h1 className="font-edgy">
+          GET <span className="font-bold">IN</span> TOUCH<span className="font-bit">✨</span> {" "}
           <span></span>
           </h1>
-          <h1 className="text-2xl md:text-4xl pt-4 lowercase">parikshitshadn@gmail.com</h1>
-         
+          <div className="relative inline-block">
+            <h1 
+              className="text-2xl md:text-4xl text-[#eeff82]
+              pt-4 lowercase select-text cursor-pointer transition-all duration-300 ease-in-out"
+              onClick={() => {
+                navigator.clipboard.writeText("parikshitshadn@gmail.com");
+                gsap.to(".copy-notification", {
+                  opacity: 1,
+                  y: -20,
+                  duration: 0.5,
+                  onComplete: () => {
+                    gsap.to(".copy-notification", {
+                      opacity: 0,
+                      y: 0,
+                      duration: 0.5,
+                      delay: 1.5
+                    });
+                  }
+                });
+              }}
+            >
+              parikshitshadn@gmail.com
+            </h1>
+            <span className="copy-notification 
+            absolute left-1/2 transform -translate-x-1/2 
+            -bottom-16 bg-[#eeff82] text-black py-1 px-3 rounded opacity-0 text-xs">
+              Email copied!
+            </span>
           </div>
+        </div>
       </div>
     <footer className="footer py-20 bg-transparent">
       <div className="max-w-full  w-full mx-auto px-2">
-        <h2 className="text-4xl md:text-4xl lg:text-5xl xl:text-8xl mb-8 text-center about-head uppercase p-6">drop a message</h2>
+        <h2 className="text-4xl md:text-4xl lg:text-5xl 
+        xl:text-8xl mb-8 text-center about-head
+         uppercase p-6 font-edgy">drop a message</h2>
         <form onSubmit={handleSubmit} className="space-y-4 p-0 md:p-8">
           <input
             type="text"

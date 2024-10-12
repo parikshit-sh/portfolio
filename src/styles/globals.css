@@ -25,6 +25,13 @@
 }
 
 @font-face {
+  font-family: 'Edgy';
+  src: url('/fonts/edgy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Mori';
   src: url('/fonts/Mori-Regular.woff') format('woff');
   font-weight: normal;

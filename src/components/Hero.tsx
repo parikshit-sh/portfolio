@@ -17,27 +17,38 @@ const Hero = () => {
       { opacity: 1, y: 0 } // End state
     );
 
+    // Fade out on scroll
+    gsap.to(heroRef.current, {
+      opacity: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
   }, []);
 
   return (
     <section
       ref={heroRef}
-      className="flex items-center justify-center md:mb-0
+      className="flex items-center justify-center mb-[20vh] lg:mb-[80vh]
       min-h-screen md:min-h-[30rem] bg-transparent text-white pt-10"
     >
-      <div ref={textRef} className="text-center p-8 max-w-6xl select-none">
+      <div ref={textRef} className="text-center p-6 max-w-6xl fixed select-none">
         {/* Name Heading */}
-        <h1 className="text-[clamp(1.6rem,6vw,6rem)] font-thin font-mori leading-[1] ">
-          <span className="font-gVibes font-bold">P</span>ARIKSHIT{" "}
-          <span className="font-gVibes font-bold">S</span>HARMA
+        <h1 className="text-[clamp(1.6rem,6vw,6rem)] font-thin font-edgy leading-[1] ">
+         PARIKSHIT{" "}
+        SHARMA
         </h1>
 
         {/* Title */}
-        <h1 className="text-[clamp(2rem,7vw,7rem)] uppercase font-mori leading-[1]">
-          front end 
+        <h1 className="text-[clamp(1.8rem,7vw,7rem)] uppercase font-edgy leading-[1]">
+          fro<span className="font-bold font-mori">n</span>t e<span className="font-bold font-mori">n</span>d 
         </h1>
-        <h1 className="text-[clamp(2rem,7vw,7rem)] uppercase font-mori leading-[1]">
-        developer<span className="font-bit">✨</span>
+        <h1 className="text-[clamp(1.8rem,7vw,7rem)] uppercase font-edgy leading-[1]">
+        developer<span className="font-bit text-[#eeff82]">✨</span>
         </h1>
 
         {/* Description */}

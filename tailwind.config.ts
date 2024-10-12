@@ -12,7 +12,8 @@ const config: Config = {
         bit: ["PPMondwest"],
         gVibes:["Great Vibes, cursive"],
         woodland:["Woodland"],
-        mori:["Mori"]
+        mori:["Mori"],
+        edgy:["Edgy"]
       }
     },
   },
