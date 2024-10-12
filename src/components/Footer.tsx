@@ -65,7 +65,7 @@ const Footer = () => {
       </div>
     <footer className="footer py-20 bg-transparent">
       <div className="max-w-full  w-full mx-auto px-2">
-        <h2 className="text-4xl md:text-4xl mb-8 text-center about-head uppercase p-6">drop a message</h2>
+        <h2 className="text-4xl md:text-4xl lg:text-5xl xl:text-8xl mb-8 text-center about-head uppercase p-6">drop a message</h2>
         <form onSubmit={handleSubmit} className="space-y-4 p-0 md:p-8">
           <input
             type="text"
@@ -96,10 +96,10 @@ const Footer = () => {
           <div className="px-10">
             <button
               type="submit"
-              className="btns inline-block text-lg md:text-2xl bg-white border-2 
-              text-black w-full py-3 px-8 hover:bg-transparent uppercase
-               hover:text-white hover:border-white rounded-full 
-            transition-all duration-300 ease-in-out hover:no-underline 
+              className="btns inline-block text-lg md:text-2xl bg-white
+              text-black w-full py-3 px-8 rounded-full uppercase
+               transition-all duration-300 ease-in-out
+                 hover:bg-[#eeff82] transform hover:-translate-y-1 hover:no-underline 
             text-center"
             >
               Send
@@ -107,13 +107,13 @@ const Footer = () => {
           </div>
         </form>
         {showNotification && (
-          <div className="fixed bottom-4 right-4 bg-white text-black py-2 px-4 rounded shadow-lg transition-opacity duration-300">
+          <div className="fixed bottom-4 right-4 bg-[#eeff82] text-black py-2 px-4 rounded shadow-lg transition-opacity duration-300">
             Message sent successfully
           </div>
         )}
        
       </div>
-   
+    
     </footer>
     
     </section>

@@ -198,7 +198,7 @@ const Header = () => {
           </li>
           <li className="navbar-link relative">
             <a
-              href="https://parikshit-blog.vercel.app/"
+              href="https://parikshitblog.vercel.app/"
               target="_blank"
             >
               Blog

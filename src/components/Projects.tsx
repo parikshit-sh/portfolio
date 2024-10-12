@@ -43,7 +43,7 @@ const Projects = ({ projects = [
       "/rentals3.webp"
     ],
     techUsed: ["ReactJS", "TailwindCSS"],
-    liveLink: "https://rentals-rust.vercel.app/",
+    liveLink: "https://rentals-car.vercel.app/",
     date: "2024",
   },
   {
@@ -57,7 +57,7 @@ const Projects = ({ projects = [
       "/tokens2.png"
     ],
     techUsed: ["NextJS", "TailwindCSS", "CoinGeckoAPI"],
-    liveLink: "https://tokenstats.vercel.app/",
+    liveLink: "https://coinyard.vercel.app/",
     date: "2023",
   },
 ]}: { projects?: Project[] }) => {
@@ -110,9 +110,8 @@ const Projects = ({ projects = [
     if (activeProject !== null) {
       gsap.to(`#project-details-${activeProject}`, {
         height: "auto",
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out"
+        duration: 0.6,
+        ease: "power2.inOut"
       });
     }
 
@@ -125,25 +124,29 @@ const Projects = ({ projects = [
     if (activeProject === id) {
       gsap.to(`#project-details-${id}`, {
         height: 0,
-        duration: 0.5, // Adjusted for smoother transition
-        ease: "power1.in", // Adjusted for smoother transition
+        duration: 0.6,
+        ease: "power2.inOut",
         onComplete: () => setActiveProject(null),
       });
     } else {
       if (activeProject !== null) {
         gsap.to(`#project-details-${activeProject}`, {
           height: 0,
-          opacity: 0,
-          duration: 0.5, // Adjusted for smoother transition
-          ease: "power1.in", // Adjusted for smoother transition
+          duration: 0.6,
+          ease: "power2.inOut",
         });
       }
       setActiveProject(id);
+      gsap.to(`#project-details-${id}`, {
+        height: "auto",
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
     }
   };
 
   return (
-    <section className="projects-section py-10 pt-20 flex flex-col items-center" id="projects_">
+    <section className="projects-section py-10 pt-20  flex flex-col items-center" id="projects_">
       <div className="max-w-6xl w-full px-12">
         <h1 className="text-4xl lg:text-5xl mb-12 uppercase" id="prod">
           Projects
@@ -166,7 +169,7 @@ const Projects = ({ projects = [
                 }}
                 className={`project-row cursor-pointer 
                   flex justify-between
-                  items-center text-white hover:bg-[#202020] hover:text-[#eeff82]`}
+                  items-center text-white hover:bg-[#202020] hover:text-[#eeff82] `}
                 onClick={() => handleProjectClick(project.id)}
               >
                 <h2 className="text-base p-4">{project.title}</h2>
@@ -183,26 +186,44 @@ const Projects = ({ projects = [
               </div>
               <div
                 id={`project-details-${project.id}`}
-                className="project-details overflow-hidden h-0 opacity-0"
+                className="project-details overflow-hidden h-0"
               >
                 <div className="py-6">
                   <p className="mb-4 text-[1.3rem] max-w-4xl md:text-3xl">{project.description}</p>
-                  <div className="flex mb-4">
+                  <ol className="tech-used grid grid-cols-1 text-9xl md:hidden p-3">
+                    {project.techUsed.map((tech: string, techIndex: number) => (
+                      <li key={techIndex} className="text-sm px-2 py-1
+                       before:content-['●'] before:mr-2 before:text-lg">
+                        {tech}
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="flex mb-6">
                     <a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full text-black bg-white px-4 py-2"
+                      className="rounded-full text-black bg-white
+                       px-6 py-3 text-lg transition-all duration-300 ease-in-out
+                        hover:bg-[#eeff82] transform hover:-translate-y-1"
                     >
                       See Website
                     </a>
                   </div>
-                  <div className="project-images gap-4 overflow-x-auto grid
-                   grid-cols-1 lg:grid-cols-3">
+                  <div className="project-images gap-3 overflow-x-auto grid
+                   grid-cols-1 lg:grid-cols-3 p-4 rounded-lg">
                     {project.images.slice(0, 3).map
                     ((image: string | StaticImport, imageIndex: number) => (
-                      <Image key={imageIndex} src={image}
-                       alt={`Project ${project.title} Image ${imageIndex + 1}`} width={600} height={400}  />
+                      <div key={imageIndex} className="overflow-hidden">
+                        <Image 
+                          src={image}
+                          alt={`Project ${project.title} Image ${imageIndex + 1}`}
+                          width={600}
+                          height={400}
+                          className="object-cover w-full 
+                          h-full"
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>

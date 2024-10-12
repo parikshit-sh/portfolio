@@ -572,12 +572,7 @@ input:-webkit-autofill:active{
   }
 }
 
-.hero-content {
-  position: sti;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
+
 
 .hero-name, .hero-head, .icon {
   margin: 0;
@@ -585,25 +580,7 @@ input:-webkit-autofill:active{
   line-height: 1.2;
 }
 
-.hero-name {
-  font-size: clamp(1rem, 5.3vw, 5.3rem);
-}
 
-.cursive {
-  font-size: clamp(1rem, 7vw, 7rem);
-}
-
-.hero-head {
-  font-size: clamp(1rem, 5.3vw, 5.3rem);
-}
-
-.developer {
-  font-size: clamp(1rem, 6.5vw, 6.5rem);
-}
-
-.icon {
-  font-size: clamp(1rem, 5.3vw, 5.3rem);
-}
 
 .scroll-indicator-container {
   position: absolute;

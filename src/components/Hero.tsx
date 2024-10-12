@@ -11,7 +11,7 @@ const Hero = () => {
     tl.fromTo(
       textRef.current,
       { opacity: 0, y: 50 }, // Initial state
-      { opacity: 1, y: 0 } // End state
+      { opacity: 1, y: 0 } // End statey
     );
   }, []);
 
@@ -23,25 +23,21 @@ const Hero = () => {
     >
       <div ref={textRef} className="text-center p-8 max-w-6xl">
         {/* Name Heading */}
-        <h1 className="text-[8vw] sm:text-[6vw]  font-thin font-mori leading-[1]">
+        <h1 className="text-[clamp(1.6rem,6vw,6rem)] font-thin font-mori leading-[1]">
           <span className="font-mori">P</span>ARIKSHIT{" "}
           <span className="font-mori">S</span>HARMA
         </h1>
 
         {/* Title */}
-        <h1 className="text-[9vw] sm:text-[3em] md:text-[8vw] uppercase font-mori leading-[1]">
+        <h1 className="text-[clamp(2rem,7vw,7rem)] uppercase font-mori leading-[1]">
           front end 
-          developer<span className="font-bit">✨</span>
-         
+        </h1>
+        <h1 className="text-[clamp(2rem,7vw,7rem)] uppercase font-mori leading-[1]">
+        developer<span className="font-bit">✨</span>
         </h1>
 
-        {/* Footer Title */}
-     
-          
- 
-
         {/* Description */}
-        <p className="mt-6 text-lg sm:text-xl md:text-2xl font-mono leading-none">
+        <p className="mt-6 text-[clamp(1rem,2vw,2rem)] font-mono leading-none">
           Crafting seamless digital experiences.
         </p>
       </div>
