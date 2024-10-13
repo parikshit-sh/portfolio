@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "#faf6f9", 
+          backgroundColor: "#121212", 
           zIndex: 9999,
         }}
       />

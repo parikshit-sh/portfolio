@@ -7,6 +7,7 @@
 
 
 ::root {
+  background-color: #121212;
   color: #fff;
 }
 
@@ -51,7 +52,7 @@
 }
 
 html, body {
-  background-color: #121212; /* Ensure the background is black */
+  background-color: #121212; 
   color: white;
 }
 

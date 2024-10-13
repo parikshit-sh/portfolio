@@ -152,7 +152,7 @@ const Footer = () => {
     </footer>
     
     </section>
-    <div className="text-white pt-24 flex flex-col justify-center pb-20">
+    <div className="text-white pt-24 flex flex-col justify-center pb-10">
     <div className="flex justify-center">
       <p className="text-sm font-bit font-bold text-[#eeff82]">
         Made with ♡ by Parikshit
