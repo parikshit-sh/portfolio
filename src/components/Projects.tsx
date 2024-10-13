@@ -206,10 +206,10 @@ const Projects = ({ projects = [
               >
                 <div className="py-6 p-4">
                   <p className="mb-4 text-[1.3rem] max-w-4xl md:text-3xl">{project.description}</p>
-                  <ol className="tech-used flex text-9xl md:hidden p-3">
+                  <ol className="tech-used flex flex-wrap text-9xl md:hidden p-3">
                     {project.techUsed.map((tech: string, techIndex: number) => (
-                      <li key={techIndex} className="text-sm px-2 py-1
-                       before:content-['●'] before:mr-2 before:text-lg">
+                      <li key={techIndex} className="text-sm px-2 py-1 mb-2 mr-2
+                       before:content-['●'] before:mr-2 before:text-lg before:text-[#eeff82]">
                         {tech}
                       </li>
                     ))}
