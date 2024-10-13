@@ -1,8 +1,8 @@
 const About = () => {
   return (
-    <section className="about-section py-8 flex flex-col items-center">
-      <div className="max-w-6xl w-full">
-      <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8 flex flex-col 
+    <section className="about-section py-8 flex flex-col items-center p-8 md:p-16 lg:p-24">
+      <div className="max-w-[89.2rem] w-full">
+      <div className="flex flex-col 
       justify-center flex-grow">
         
         <div className="flex justify-center mb-8">
@@ -22,7 +22,7 @@ const About = () => {
             href="mailto:parikshitshadn@gmail.com?subject=Work Inquiry"
             className="btns inline-block text-lg md:text-2xl bg-white border-2 
               text-black w-full py-3 px-8 hover:bg-transparent uppercase
-               hover:text-white hover:border-white rounded-full 
+               hover:text-white hover:border-white 
             transition-all duration-300 ease-in-out hover:no-underline md:w-52 
             text-center"
           >
@@ -32,7 +32,7 @@ const About = () => {
             href="#"
             className="btns inline-block text-lg md:text-2xl bg-transparent uppercase border-2
              border-white text-whtie hover:bg-white
-              hover:text-black rounded-full transition-all duration-300 
+              hover:text-black transition-all duration-300 
               ease-in-out hover:no-underline w-full py-3 px-8 md:w-52 text-center"
           >
             Resume

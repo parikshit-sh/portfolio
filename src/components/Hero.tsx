@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroImg from "public/black_.webp";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,15 +9,13 @@ const Hero = () => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    // GSAP animation
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { delay: 1, duration: 1, ease: "power3.out", stagger: 0.2 } });
     tl.fromTo(
       textRef.current,
-      { opacity: 0, y: 50 }, // Initial state
-      { opacity: 1, y: 0 } // End state
+      { opacity: 0, y: 150 },
+      { opacity: 1, y: 0 }
     );
 
-    // Fade out on scroll
     gsap.to(heroRef.current, {
       opacity: 0,
       ease: "none",
@@ -34,32 +30,29 @@ const Hero = () => {
 
   return (
     <section
-      
-      className="flex items-center justify-center 
-      min-h-screen md:min-h-[30rem] bg-transparent text-white pt-10"
+      ref={heroRef}
+      className="flex flex-col items-start justify-center 
+      min-h-screen bg-transparent text-white p-8 md:p-16 lg:p-24"
     >
-      <div ref={heroRef} className="w-full h-full fixed top-0 bg-black">
-        <Image src={heroImg} alt="hero" 
-        className="object-cover w-full h-full top-0 left-0 min-h-screen opacity-50" 
-        width={1000} height={1000} />
-      </div>
-      <div ref={textRef} className="text-center p-6 max-w-6xl select-none">
-        {/* Name Heading */}
-        <h1 className="text-[clamp(1.8rem,7vw,7rem)] md:text-[clamp(1.8rem,6vw,6rem)] font-editorial leading-[1] ">
-         <span className="font-gVibes text-[clamp(1.8rem,10vw,10rem)] md:text-[clamp(2rem,7vw,7rem)] ">P</span>ARIKSHIT{" "}
-        <span className="font-gVibes text-[clamp(1.8rem,10vw,10rem)] md:text-[clamp(2rem,7vw,7rem)] ">S</span>HARMA
+      <div ref={textRef} className="w-full max-w-[1400px] mx-auto select-none">
+        <h1 className="text-[clamp(3rem,12vw,12rem)] font-editorial leading-[0.9] mb-4">
+          <span className="font-gVibes text-[1.2em]">P</span>ARIKSHIT
+        </h1>
+        <h1 className="text-[clamp(3rem,12vw,12rem)] font-editorial leading-[0.9] mb-4">
+          <span className="font-gVibes text-[1.2em]">S</span>HARMA
         </h1>
 
-        {/* Title */}
-        <h1 className="text-[clamp(1.8rem,7vw,7rem)] md:text-[clamp(1.8rem,6vw,6rem)] uppercase font-editorial leading-[1]">
-          front end 
-        </h1>
-        <h1 className="text-[clamp(1.8rem,7vw,7rem)] md:text-[clamp(1.8rem,6vw,6rem)] uppercase font-editorial leading-[1]">
-        developer<span className="font-bit">✨</span>
-        </h1>
+        <div className="mt-8 md:mt-16">
+          <h2 className="text-[clamp(1.5rem,8vw,12rem)] uppercase font-editorial leading-[1.1]">
+            front end
+          </h2>
+          <h2 className="text-[clamp(1.5rem,8vw,12rem)] uppercase font-editorial leading-[1.1] flex items-center">
+            developer
+            <span className="font-bit text-[1.3em] ml-2">✨</span>
+          </h2>
+        </div>
 
-        {/* Description */}
-        <p className="md:mt-6 text-[clamp(1rem,2vw,2rem)] font-mono leading-none p-6">
+        <p className="mt-8 md:mt-16 text-[clamp(1rem,2vw,1.5rem)] font-mono max-w-2xl">
           Crafting seamless digital experiences.
         </p>
       </div>

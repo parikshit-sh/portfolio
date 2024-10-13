@@ -20,9 +20,9 @@ export default function Home() {
     <>
 
       {/* Main content */}
-      <div className="grid items-center 
-        justify-items-center min-h-screen pb-20 gap-16
-        sm:p-10 sm:pt-20 transition-opacity duration-300">
+      <div className=" 
+       min-h-screen 
+          transition-opacity duration-300">
         <Header />
         <Hero />
         <About />

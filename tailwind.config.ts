@@ -10,13 +10,26 @@ const config: Config = {
     extend: {
       fontFamily: {
         bit: ["PPMondwest"],
-        gVibes:["Great Vibes, cursive"],
-        woodland:["Woodland"],
-        mori:["Mori"],
-        editorial:["PPEditorial"]
-      }
+        gVibes: ["Great Vibes, cursive"],
+        woodland: ["Woodland"],
+        mori: ["Mori"],
+        editorial: ["PPEditorial"]
+      },
+      colors: {
+        light: {
+          background: "#FAF9F6",
+          text: "#121212",
+          primary: "#eeff82",
+        },
+        dark: {
+          background: "#121212",
+          text: "#ffffff",
+          primary: "#eeff82",
+        },
+      },
     },
   },
   plugins: [],
+  darkMode: "class",
 };
 export default config;

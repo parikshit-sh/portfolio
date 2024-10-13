@@ -10,7 +10,7 @@ const Header = () => {
 
       // Change background color based on scroll position
       if (currentScrollY > 100) {
-        setBgColor("rgba(0, 0, 0, 0.8)"); // Semi-transparent background after scrolling down
+        setBgColor("rgba(18, 18, 18, 0.8)"); // Semi-transparent background after scrolling down
       } else {
         setBgColor("transparent"); // Keep bg transparent when at the top
       }

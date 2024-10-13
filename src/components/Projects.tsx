@@ -163,13 +163,14 @@ const Projects = ({ projects = [
 
   return (
     <section className="projects-section py-10 pt-20  flex flex-col items-center" id="projects_">
-      <div className="max-w-6xl w-full px-12">
-        <h1 className="text-4xl lg:text-5xl mb-12 uppercase" id="prod">
+      <div className="max-w-[89.2rem] w-full px-8 md:px-16 lg:px-24">
+        <h1 className="lg:text-7xl text-4xl
+        md:text-7xl font-mori mb-12 uppercase" id="prod">
           Projects
         </h1>
       </div>
 
-      <div className="w-full px-4 lg:px-0 ">
+      <div className="w-full px-4 lg:px-0 p-4">
         <div className="flex flex-col">
           {projects.map((project: Project, index: number) => (
             <div key={project.id} className="project-container" id={`project-${project.id}`}>
@@ -204,7 +205,7 @@ const Projects = ({ projects = [
                 id={`project-details-${project.id}`}
                 className="project-details overflow-hidden h-0"
               >
-                <div className="py-6">
+                <div className="py-6 p-4">
                   <p className="mb-4 text-[1.3rem] max-w-4xl md:text-3xl">{project.description}</p>
                   <ol className="tech-used flex text-9xl md:hidden p-3">
                     {project.techUsed.map((tech: string, techIndex: number) => (
@@ -220,14 +221,14 @@ const Projects = ({ projects = [
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-full text-black bg-white
-                       px-6 py-3 text-lg transition-all duration-300 ease-in-out
+                       px-5 py-2 text-base transition-all duration-300 ease-in-out
                         hover:bg-[#eeff82] transform hover:-translate-y-1"
                     >
                       See Website
                     </a>
                   </div>
                   <div className="project-images gap-3 overflow-x-auto grid
-                   grid-cols-1 lg:grid-cols-3 p-4 rounded-lg">
+                   grid-cols-1 lg:grid-cols-3">
                     {project.images.slice(0, 3).map
                     ((image: string | StaticImport, imageIndex: number) => (
                       <div key={imageIndex} className="overflow-hidden">
