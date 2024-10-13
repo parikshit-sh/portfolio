@@ -15,7 +15,6 @@ const Footer = () => {
     message: "",
   });
   const [showNotification, setShowNotification] = useState<boolean>(false);
-  const [showCopyHint, setShowCopyHint] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,12 +22,19 @@ const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-
+  
+    // Convert formData to a plain object
+    const emailData: Record<string, unknown> = {
+      from_name: formData.from_name,
+      email: formData.email,
+      message: formData.message,
+    };
+  
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
-        formData as unknown as Record<string, unknown>,
+        emailData,  
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ''
       )
       .then(
@@ -47,21 +53,21 @@ const Footer = () => {
   
   return (
     <>
-    <section className="flex flex-col items-center justify-center xl:flex-row z-[20]">
-    <div>
-        <div className="lg:text-7xl text-4xl xl:max-w-lg
-        md:text-7xl mx-auto uppercase text-center py-8
+    <section className="flex flex-col items-center justify-center xl:flex-row z-[20] px-12">
+      <div>
+        <div className="lg:text-8xl text-4xl 
+        md:text-5xl mx-auto uppercase text-center py-8
         ">
-          <h1 className="font-edgy select-none">
+          <h1 className="font-edgy select-none px-6">
           GET IN TOUCH<span className="font-bit">✨</span> {" "}
           <span></span>
           </h1>
-
-          <div className="relative inline-block px-20">
+          <div className="relative inline-block">
             <h1 
-              className="text-2xl md:text-3xl
-               text-[#eeff82] lowercase cursor-pointer transition-all 
-               duration-300 ease-in-out"
+              className="text-xl md:text-4xl text-[#eeff82]
+              pt-4 lowercase px-6
+               cursor-pointer transition-all 
+              duration-300 ease-in-out"
               onClick={() => {
                 navigator.clipboard.writeText("parikshitshadn@gmail.com");
                 gsap.to(".copy-notification", {
@@ -78,28 +84,21 @@ const Footer = () => {
                   }
                 });
               }}
-              onMouseEnter={() => setShowCopyHint(true)}
-              onMouseLeave={() => setShowCopyHint(false)}
             >
               parikshitshadn@gmail.com
-              {showCopyHint && (
-                <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-11 uppercase bg-[#eeff82] text-black py-1 px-3 rounded text-xs">
-                  copy
-                </span>
-              )}
             </h1>
-            <span className="copy-notification absolute left-1/2 transform -translate-x-1/2 -bottom-16 bg-[#eeff82] text-black py-1 px-3 rounded opacity-0 text-xs">
+            <span className="copy-notification 
+            absolute left-1/2 transform -translate-x-1/2 
+            -bottom-16 bg-[#eeff82] text-black py-1 px-3 rounded opacity-0 text-xs">
               Email copied!
             </span>
           </div>
         </div>
       </div>
-
-      <footer className="footer py-20 bg-transparent">
+    <footer className="footer py-20 bg-transparent">
       <div className="max-w-full  w-full mx-auto px-2">
-        <h2 className="select-none
-         mb-8 text-center about-head lg:text-7xl text-4xl
-        md:text-7xl 
+        <h2 className="text-4xl md:text-4xl lg:text-8xl select-none
+         mb-8 text-center about-head
          uppercase p-6 font-edgy">drop a message</h2>
         <form onSubmit={handleSubmit} className="space-y-4 p-0 md:p-8">
           <input
@@ -131,8 +130,9 @@ const Footer = () => {
           <div className="px-10">
             <button
               type="submit"
-              className="btns text-lg md:text-2xl bg-white mx-auto
-              text-black w-1/2 py-3 px-8  uppercase flex justify-center items-center
+              className="btns text-lg md:text-2xl bg-white
+              text-black w-full mt-6 py-3 px-8 md:w-72 mx-auto
+              flex justify-center items-center uppercase
                transition-all duration-300 ease-in-out
                  hover:bg-[#eeff82] transform hover:-translate-y-1 hover:no-underline 
             text-center"
@@ -150,13 +150,20 @@ const Footer = () => {
       </div>
     
     </footer>
+    
     </section>
-    <div className="text-white pt-24 text-center pb-10">
-      <div className="">
-        <p className="text-xl md:text-2xl lg:text-3xl" style={{ fontFamily: 'PPMondwest' }}>
-          &copy; {new Date().getFullYear()} FOLIO 
-        </p>
-      </div>
+    <div className="text-white pt-24 flex flex-col justify-center pb-20">
+    <div className="flex justify-center">
+      <p className="text-sm font-bit font-bold text-[#eeff82]">
+        Made with ♡ by Parikshit
+         
+      </p>
+    </div>
+    <p className="text-xl font-bold flex justify-center md:text-2xl
+     lg:text-3xl font-bit">
+        &copy; {new Date().getFullYear()} FOLIO
+         
+      </p>
     </div>
    </>
   );

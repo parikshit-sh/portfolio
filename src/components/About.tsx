@@ -7,7 +7,7 @@ const About = () => {
         
         <div className="flex justify-center mb-8">
           <div className="w-full lg:w-full z-50">
-            <p className="text-xl md:text-3xl lg:text-4xl px-4 ">
+            <p className="text-sm  md:text-3xl lg:text-4xl px-4 ">
               Hi, I&apos;m  a Web Developer with a passion for
               crafting exceptional digital experiences. With a solid background
               in front-end technologies like React and NextJS, JavaScript, 

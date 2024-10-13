@@ -164,8 +164,7 @@ const Projects = ({ projects = [
   return (
     <section className="projects-section py-10 pt-20  flex flex-col items-center" id="projects_">
       <div className="max-w-[89.2rem] w-full px-8 md:px-16 lg:px-24">
-        <h1 className="lg:text-7xl text-4xl
-        md:text-7xl font-mori mb-12 uppercase" id="prod">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl px-4  font-mori mb-12 uppercase" id="prod">
           Projects
         </h1>
       </div>

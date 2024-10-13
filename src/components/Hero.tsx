@@ -9,12 +9,7 @@ const Hero = () => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { delay: 1, duration: 1, ease: "power3.out", stagger: 0.2 } });
-    tl.fromTo(
-      textRef.current,
-      { opacity: 0, y: 150 },
-      { opacity: 1, y: 0 }
-    );
+  
 
     gsap.to(heroRef.current, {
       opacity: 0,
@@ -32,13 +27,14 @@ const Hero = () => {
     <section
       ref={heroRef}
       className="flex flex-col items-start justify-center 
-      min-h-screen bg-transparent text-white p-8 md:p-16 lg:p-24"
+      min-h-screen bg-transparent
+       text-white p-8 md:p-16 lg:p-24 pt-24"
     >
       <div ref={textRef} className="w-full max-w-[1400px] mx-auto select-none">
-        <h1 className="text-[clamp(3rem,12vw,12rem)] font-editorial leading-[0.9] mb-4">
+        <h1 className="text-[clamp(3rem,10vw,10rem)] font-editorial leading-[0.9] mb-4">
           <span className="font-gVibes text-[1.2em]">P</span>ARIKSHIT
         </h1>
-        <h1 className="text-[clamp(3rem,12vw,12rem)] font-editorial leading-[0.9] mb-4">
+        <h1 className="text-[clamp(2rem,10vw,10rem)] font-editorial leading-[0.9] mb-4">
           <span className="font-gVibes text-[1.2em]">S</span>HARMA
         </h1>
 
