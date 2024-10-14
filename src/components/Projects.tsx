@@ -47,14 +47,14 @@ const Projects = ({ projects = [
     date: "2024",
   },
   {
-    title: "Token Stats",
+    title: "Coinyard",
     id: "03",
     description:
-      "TokenStats is a cryptocurrency tracker. It provides real-time updates on cryptocurrency prices, market caps, and other essential metrics. With a minimal interface and responsive design.",
+      "Coinyard is a cryptocurrency tracker. It provides real-time updates on cryptocurrency prices, market caps, and other essential metrics. With a minimal interface and responsive design.",
     images: [
-      "/token.webp",
-      "/tokenstats.webp",
-      "/tokens2.png"
+      "/coinyard1.webp",
+      "/coinyard2.webp",
+      "/coinyard3.webp"
     ],
     techUsed: ["NextJS", "TailwindCSS", "CoinGeckoAPI"],
     liveLink: "https://coinyard.vercel.app/",

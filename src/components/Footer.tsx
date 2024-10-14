@@ -153,13 +153,7 @@ const Footer = () => {
     
     </section>
     <div className="text-white pt-24 flex flex-col justify-center pb-10">
-    <div className="flex justify-center">
-      <p className="text-sm font-bit font-bold text-[#eeff82]">
-        Made with ♡ by Parikshit
-         
-      </p>
-    </div>
-    <p className="text-xl font-bold flex justify-center md:text-2xl
+    <p className="text-xl flex justify-center md:text-2xl
      lg:text-3xl font-bit">
         &copy; {new Date().getFullYear()} FOLIO
          
