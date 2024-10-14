@@ -29,7 +29,8 @@ const About = () => {
             Contact
           </a>
           <a
-            href="#"
+            href="/resume.jpg"
+            download="resume.jpg"
             className="btns inline-block text-lg md:text-2xl bg-transparent uppercase border-2
              border-white text-whtie hover:bg-white
               hover:text-black transition-all duration-300 
