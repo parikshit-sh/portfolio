@@ -100,7 +100,7 @@ const Header = () => {
         <h1 className="text-xs uppercase navbar-link">Parikshit Sharma</h1>
           <li className="navbar-link relative">
             <a
-              href="https://github.com/parikshit-sh"
+              href="https://github.com/parikshit47"
               target="_blank"
               rel="noopener noreferrer"
               className="no-underline hover:no-underline"
@@ -110,7 +110,7 @@ const Header = () => {
           </li>
           <li className="navbar-link relative text-xs">
             <a
-              href="https://www.linkedin.com/in/parikshit-sh/"
+              href="https://www.linkedin.com/in/parikshit47"
               target="_blank"
             >
               LinkedIn
